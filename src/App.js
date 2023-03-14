@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ContextProvider from "./context/ContextProvider";
+import Welcome from "./pages/Welcome";
 
 const App = () => {
   return (
@@ -18,7 +19,9 @@ const App = () => {
         pauseOnHover
       />
       <ContextProvider>
-        <Routes></Routes>
+        <Routes>
+          <Route path="/" element={<Welcome />} key="Welcome" />
+        </Routes>
       </ContextProvider>
     </>
   );
