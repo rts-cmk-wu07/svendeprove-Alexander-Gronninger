@@ -6,14 +6,19 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
 const Carousel = ({ children, setPlaylistIndex }) => {
+  // calculates how many slides it should show based on the screen height minus other content
+  const { innerHeight: height } = window;
+  let slickHeight = height - 66 - 32 - 41 - 16;
+  let slicksToShow = slickHeight / 286;
+
   var settings = {
-    dots: false,
     infinite: false,
-    slidesToShow: 1,
-    centerMode: false,
+    slidesToShow: slicksToShow,
+    swipeToSlide: true,
     arrows: false,
-    slidesToScroll: 1,
-    variableWidth: true,
+    vertical: true,
+    verticalSwiping: true,
+    center: true,
   };
 
   return <Slider {...settings}>{children}</Slider>;
