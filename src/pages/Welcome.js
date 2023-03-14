@@ -20,7 +20,7 @@ const Welcome = () => {
         >
           <Button>
             <Link
-              to="/home"
+              to="/hjem"
               className="w-full h-full text-quaternaryText block text-center leading-full leading-[54px]"
             >
               Kom i gang

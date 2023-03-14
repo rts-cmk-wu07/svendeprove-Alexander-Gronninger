@@ -30,6 +30,7 @@ module.exports = {
         SecondaryLogoStroke: "#000",
         logoText: "#E856EB",
         logoLine: "#913693",
+        primaryBorder: "#000",
       },
     },
   },

@@ -2,6 +2,7 @@ import { Outlet } from "react-router";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ContextProvider from "../context/ContextProvider";
+import Nav from "../templates/Nav";
 
 const Layout = () => {
   return (
@@ -19,7 +20,7 @@ const Layout = () => {
       />
       <ContextProvider>
         <header>
-          {/* NAVIGATION */} <p>HEADER</p>
+          <Nav />
         </header>
         <main>
           <Outlet />
