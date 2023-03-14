@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import Logo from "../components/Logo";
-import { motion, useAnimationControls } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
 
 const Welcome = () => {
