@@ -1,7 +1,7 @@
-const Button = () => {
+const Button = ({ children }) => {
   return (
     <>
-      <div className="background-primaryBackground w-[249] h-[54] rounded-[10px]">
+      <div className="bg-primaryBackground w-[249px] h-[54px] rounded-[10px]">
         {children}
       </div>
     </>
