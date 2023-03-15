@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import UserContext from "../context/UserContext";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -18,7 +18,40 @@ const schema = yup
 const Login = () => {
   const { setUser } = useContext(UserContext);
 
+  // To navigate back to main page when login successful
   const navigate = useNavigate();
+
+  /* Bunch of jangle to make form stay center in responsive way */
+  const [formMarginLeft, setFormMarginLeft] = useState(null);
+  const loginDiv = useRef();
+
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    setFormMarginLeft(
+      `${(windowSize.width - loginDiv?.current.offsetWidth) / 2}px`
+    );
+  }, [loginDiv, windowSize]);
+
+  /*
+   */
+  // login fetch
 
   const {
     register,
@@ -85,13 +118,18 @@ const Login = () => {
       });
   };
 
+  // Unified rules for form input
   const inputCss = "pl-[22px] py-2 my-2 bg-senaryBackground max-w-[332px]";
 
   return (
     <>
       <div className="bg-[url('./backgrounds/splash-image.jpg')] bg-cover bg-no-repeat bg-top h-screen overflow-hidden grid">
         <div className="bg-septenaryBackground h-[60vh] w-[200vw] -rotate-[27.19deg] right-[50vw] top-[15vh] relative col-start-1 col-end-2 row-start-1 row-end-2"></div>
-        <div className="col-start-1 col-end-2 row-start-1 row-end-2 ml-[8vw] mt-[30vh] z-50 h-fit">
+        <div
+          className="col-start-1 col-end-2 row-start-1 row-end-2 mt-[30vh] z-50 h-fit w-fit block"
+          ref={loginDiv}
+          style={{ marginLeft: formMarginLeft }}
+        >
           <h1 className="text-large text-tertiaryText">Log ind</h1>
           <form
             className="max-w-[50vh] h-fit flex flex-col"

@@ -14,7 +14,7 @@ const Home = () => {
     <>
       <section className="p-4 pt-6">
         <Heading>Aktiviteter</Heading>
-        <div className="mt-8 overflow-hidden max-h-[85vh]">
+        <div className="mt-8 overflow-hidden max-h-[85vh] mb-12">
           <Carousel>
             {!isLoading &&
               activities.map((activity) => {
