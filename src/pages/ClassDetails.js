@@ -3,6 +3,7 @@ import UserContext from "../context/UserContext";
 import { useParams } from "react-router";
 import Button from "../components/Button";
 import useFetch from "../hooks/useFetch";
+import { toast } from "react-toastify";
 
 const ClassDetails = () => {
   const { user } = useContext(UserContext);
@@ -13,11 +14,49 @@ const ClassDetails = () => {
     isLoading,
     error,
   } = useFetch("http://localhost:4000/api/v1/activities/" + id);
-  console.log(activity);
+
+  function SignUpHandler() {
+    console.log("Sining up");
+    const toastNotification = toast.loading("Skriver op til klasse...", {
+      position: "top-center",
+      autoClose: 2500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+    try {
+      fetch(
+        `http://localhost:4000/api/v1/users/${user.userId}/activities/${id}`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: "Bearer " + user.token,
+          },
+        }
+      ).then((response) => {
+        console.log(response);
+        toast.update(toastNotification, {
+          render: "Du er nu skrevet op til" + activity.name,
+          type: "success",
+          isLoading: false,
+          autoClose: 2500,
+        });
+      });
+    } catch (error) {
+      console.log(error);
+      toast.update(toastNotification, {
+        render: "Ups! Der skete en fejl, prøv igen senere..." + error,
+        type: "error",
+        isLoading: false,
+        autoClose: 2500,
+      });
+    }
+  }
 
   return (
     <>
-      {/* big is 489, small is 268 */}
       <section className="bg-primaryBackground">
         <div className="grid overflow-hidden h-[60vh]">
           <img
@@ -25,9 +64,9 @@ const ClassDetails = () => {
             src={activity.id && activity.asset.url}
             alt={activity.id && activity?.name}
           />
-          <div className="col-start-1 col-end-2 row-start-1 row-end-2 place-self-end mb-6 mr-[21px]">
+          <div className="col-start-1 col-end-2 row-start-1 row-end-2 place-self-end mb-6 mr-[21px] z-40">
             {user && (
-              <Button>
+              <Button onClick={() => SignUpHandler()}>
                 <button className="w-full h-full text-tertiaryText">
                   Tilmeld
                 </button>

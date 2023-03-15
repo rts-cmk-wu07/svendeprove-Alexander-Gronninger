@@ -61,7 +61,7 @@ const Login = () => {
   } = useForm({ mode: "onBlur", resolver: yupResolver(schema) });
 
   const onSubmit = (data) => {
-    const id = toast.loading("Logger ind...", {
+    const toastNotification = toast.loading("Logger ind...", {
       position: "top-center",
       autoClose: 2500,
       hideProgressBar: false,
@@ -88,7 +88,7 @@ const Login = () => {
         }
       })
       .then((data) => {
-        toast.update(id, {
+        toast.update(toastNotification, {
           render: "Log ind fuldført",
           type: "success",
           isLoading: false,
@@ -98,7 +98,7 @@ const Login = () => {
         navigate("/hjem");
       })
       .catch((err) => {
-        toast.update(id, {
+        toast.update(toastNotification, {
           render:
             "Login fejlet, ukorrekt brugernavn eller kodeord. Prøv igen...",
           type: "error",

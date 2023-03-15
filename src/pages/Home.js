@@ -20,11 +20,11 @@ const Home = () => {
               activities.map((activity) => {
                 return (
                   <ClassCard
-                    image={activity.asset.url}
-                    classTitle={activity.name}
-                    ageLimit={activity.minAge + "-" + activity.maxAge + " år"}
-                    key={activity.id}
-                    id={activity.id}
+                    image={activity?.asset?.url}
+                    classTitle={activity?.name}
+                    ageLimit={activity?.minAge + "-" + activity?.maxAge + " år"}
+                    key={activity?.id}
+                    id={activity?.id}
                   />
                 );
               })}
