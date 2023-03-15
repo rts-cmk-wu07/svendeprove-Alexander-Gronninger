@@ -22,7 +22,7 @@ const Layout = () => {
         <header>
           <Nav />
         </header>
-        <main className="w-screen h-screen bg-primaryBackground p-4 pt-6">
+        <main className="w-screen h-screen bg-primaryBackground">
           <Outlet />
         </main>
       </ContextProvider>

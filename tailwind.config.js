@@ -21,6 +21,8 @@ module.exports = {
         secondaryBackground: "#E9E9E9",
         tertiaryBackground: "#E1A1E980",
         quaternaryBackground: "#C4C4C430",
+        senaryBackground: "#eaeaea",
+        septenaryBackground: "#5E2E5350",
         primaryText: "#000",
         secondaryText: "#fff",
         tertiaryText: "#EAEAEA",

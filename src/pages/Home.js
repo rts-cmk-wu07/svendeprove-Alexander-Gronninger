@@ -5,7 +5,7 @@ import Carousel from "../templates/Carousel";
 const Home = () => {
   return (
     <>
-      <section>
+      <section className="p-4 pt-6">
         <Heading>Aktiviteter</Heading>
         <div className="mt-8 overflow-hidden max-h-[85vh]">
           <Carousel>
