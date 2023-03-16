@@ -15,6 +15,8 @@ const ClassDetails = () => {
     error,
   } = useFetch("http://localhost:4000/api/v1/activities/" + id);
 
+  error && toast.error("Kunne ikke hente data, prøv igen senere");
+
   const [signedUp, setSignedUp] = useState(false);
 
   useEffect(() => {
@@ -144,6 +146,7 @@ const ClassDetails = () => {
     }
   }
 
+  console.log(activity);
   return (
     <>
       <section className="bg-primaryBackground">
@@ -169,11 +172,14 @@ const ClassDetails = () => {
           </div>
         </div>
         <div className="p-8 pt-6">
-          <h2 className="text-secondaryText font-medium">{activity.name}</h2>
-          <p className="text-secondaryText font-small">
+          <h2 className="text-secondaryText text-medium">{activity.name}</h2>
+          <p className="text-secondaryText text-small capitalize">
+            {activity.weekday} {activity.time}
+          </p>
+          <p className="text-secondaryText text-small">
             {activity.id && activity.minAge + "-" + activity.maxAge + " år"}
           </p>
-          <p className="text-secondaryText font-small mt-2 mb-16">
+          <p className="text-secondaryText text-small mt-2 mb-16">
             {activity.id && activity.description}
           </p>
         </div>

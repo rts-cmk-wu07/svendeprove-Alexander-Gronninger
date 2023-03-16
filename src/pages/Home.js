@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import ClassCard from "../components/ClassCard";
 import Heading from "../components/Heading";
 import useFetch from "../hooks/useFetch";
@@ -9,6 +10,8 @@ const Home = () => {
     isLoading,
     error,
   } = useFetch("http://localhost:4000/api/v1/activities");
+
+  error && toast.error("Kunne ikke hente data, prøv igen senere");
 
   return (
     <>
@@ -25,6 +28,8 @@ const Home = () => {
                     ageLimit={activity?.minAge + "-" + activity?.maxAge + " år"}
                     key={activity?.id}
                     id={activity?.id}
+                    day={activity.weekday}
+                    time={activity.time}
                   />
                 );
               })}
