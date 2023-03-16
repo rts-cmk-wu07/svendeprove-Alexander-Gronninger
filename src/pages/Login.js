@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
+import Heading from "../components/Heading";
 
 const schema = yup
   .object({
@@ -130,7 +131,7 @@ const Login = () => {
           ref={loginDiv}
           style={{ marginLeft: formMarginLeft }}
         >
-          <h1 className="text-large text-tertiaryText">Log ind</h1>
+          <Heading>Log ind</Heading>
           <form
             className="max-w-[50vh] h-fit flex flex-col"
             onSubmit={handleSubmit(onSubmit)}
