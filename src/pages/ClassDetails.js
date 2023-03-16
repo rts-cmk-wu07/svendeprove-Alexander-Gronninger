@@ -146,7 +146,6 @@ const ClassDetails = () => {
     }
   }
 
-  console.log(activity);
   return (
     <>
       <section className="bg-primaryBackground">
@@ -171,7 +170,7 @@ const ClassDetails = () => {
             )}
           </div>
         </div>
-        <div className="p-8 pt-6">
+        <div className="p-[28px] pt-[32px]">
           <h2 className="text-secondaryText text-medium">{activity.name}</h2>
           <p className="text-secondaryText text-small capitalize">
             {activity.weekday} {activity.time}

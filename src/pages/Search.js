@@ -26,7 +26,7 @@ const Search = () => {
 
   return (
     <>
-      <section className="p-4 pt-6">
+      <section className="p-[28px] pt-[32px]">
         <Heading>Søg</Heading>
         <div
           className="flex bg-quaternaryBackground my-4 "

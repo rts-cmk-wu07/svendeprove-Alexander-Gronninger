@@ -1,18 +1,13 @@
-import { useContext, useEffect, useState } from "react";
-import UserContext from "../context/UserContext";
+import { useEffect, useState } from "react";
 
-export default function useFetch(API, method, body) {
-  const { user } = useContext(UserContext);
-
+export default function useFetch(API, token, body) {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const fetchMethod = (method === undefined && "GET") || method;
-
-  const fetchHeaders = (fetchMethod !== "GET" && {
+  const fetchHeaders = (token && {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${user.token}`,
+    Authorization: `Bearer ${token}`,
   }) || {
     "Content-Type": "application/json",
   };
@@ -29,7 +24,7 @@ export default function useFetch(API, method, body) {
       (async function () {
         try {
           const response = await fetch(API, {
-            method: fetchMethod,
+            method: "GET",
             headers: fetchHeaders,
             body: fetchBody,
           });

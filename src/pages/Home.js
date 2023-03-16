@@ -15,7 +15,7 @@ const Home = () => {
 
   return (
     <>
-      <section className="p-4 pt-6">
+      <section className="p-[28px] pt-[32px]">
         <Heading>Aktiviteter</Heading>
         <div className="mt-8 overflow-hidden max-h-[85vh] mb-12">
           <Carousel>
