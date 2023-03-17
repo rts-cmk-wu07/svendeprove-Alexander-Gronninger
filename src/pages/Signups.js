@@ -9,7 +9,7 @@ const Signups = () => {
 
   const {
     data: activity,
-    isLoading,
+
     error,
   } = useFetch("http://localhost:4000/api/v1/activities/" + id);
 

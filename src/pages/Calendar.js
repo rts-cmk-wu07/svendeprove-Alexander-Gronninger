@@ -10,18 +10,16 @@ import useFetch from "../hooks/useFetch";
 const Calendar = () => {
   const { user } = useContext(UserContext);
 
-  const { data, isLoading, error } = useFetch(
+  const { data, error } = useFetch(
     "http://localhost:4000/api/v1/users/" + user?.userId,
     user?.token
   );
 
   let userActivities = data.activities;
 
-  const {
-    data: activities,
-    isLoading: activitiesLoaded,
-    error: activitiesError,
-  } = useFetch("http://localhost:4000/api/v1/activities");
+  const { data: activities, error: activitiesError } = useFetch(
+    "http://localhost:4000/api/v1/activities"
+  );
 
   if (user?.role === "instructor") {
     let instructorCalendar =

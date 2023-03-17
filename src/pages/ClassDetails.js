@@ -9,6 +9,13 @@ const ClassDetails = () => {
   const { user } = useContext(UserContext);
   const { id } = useParams();
 
+  const { data: userData } = useFetch(
+    "http://localhost:4000/api/v1/users/" + user?.userId,
+    user?.token
+  );
+
+  let userActivities = userData.activities;
+
   const {
     data: activity,
     isLoading,
@@ -47,7 +54,29 @@ const ClassDetails = () => {
     if (currentDay?.toLowerCase() === activity?.weekday?.toLowerCase()) {
       return toast.update(toastNotification, {
         render:
-          "Du kan ikke skrive op til en klasse der starter samme dag, prøv igen i morgen!",
+          "Du kan ikke skrive op til en klasse der starter i dag, prøv igen i morgen!",
+        type: "error",
+        isLoading: false,
+        autoClose: 2500,
+      });
+    }
+
+    userActivities?.map((userActivity) => {
+      if (
+        userActivity.weekday.toLowerCase() === activity.weekday.toLowerCase()
+      ) {
+        return toast.update(toastNotification, {
+          render: `Du kan kun skrive op til 1 klasse per dag, du er allerede skrevet op til ${userActivity.name}`,
+          type: "error",
+          isLoading: false,
+          autoClose: 2500,
+        });
+      }
+    });
+
+    if (userData.age > activity.maxAge || userData.age < activity.minAge) {
+      return toast.update(toastNotification, {
+        render: `Din alder passer ikke med aldersgrænsen for: ${activity.name}`,
         type: "error",
         isLoading: false,
         autoClose: 2500,
@@ -76,8 +105,7 @@ const ClassDetails = () => {
         }
         if (response.status === 500) {
           toast.update(toastNotification, {
-            render:
-              "Ups! Der skete en fejl, er du sikker på du har den korrekte alder til denne klasse?",
+            render: "Ups! Der skete en fejl, prøv igen senere!",
             type: "error",
             isLoading: false,
             autoClose: 2500,
@@ -164,7 +192,7 @@ const ClassDetails = () => {
                   }
                   className="w-full h-full text-tertiaryText"
                 >
-                  {!signedUp ? "Tilmeld" : "Afmeld"}
+                  {!signedUp ? "Tilmeld" : "Forlad"}
                 </button>
               </Button>
             )}
