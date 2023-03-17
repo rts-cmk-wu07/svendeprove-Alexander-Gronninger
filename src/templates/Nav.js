@@ -11,7 +11,6 @@ import UserContext from "../context/UserContext";
 
 const Nav = () => {
   const { user } = useContext(UserContext);
-  console.log(user);
 
   const linkCss =
     "w-[41px] h-[41px] block border-[1px] border-primaryBorder flex justify-center items-center rounded-full";

@@ -177,7 +177,7 @@ const ClassDetails = () => {
             src={activity.id && activity.asset.url}
             alt={activity.id && activity?.name}
           />
-          <div className="col-start-1 col-end-2 row-start-1 row-end-2 place-self-end mb-6 mr-[21px] z-40">
+          <div className="col-start-1 col-end-2 row-start-1 row-end-2 place-self-end mb-auto mt-[50vh] mr-[21px] z-40">
             {user?.role === "default" && (
               <Button>
                 <button
