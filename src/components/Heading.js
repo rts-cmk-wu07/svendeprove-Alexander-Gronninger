@@ -1,6 +1,10 @@
-const Heading = ({ children }) => {
+const Heading = ({ children, optionalCss }) => {
   return (
-    <h1 className="text-heading text-primaryHeading capitalize">{children}</h1>
+    <h1
+      className={"text-heading text-primaryHeading capitalize " + optionalCss}
+    >
+      {children}
+    </h1>
   );
 };
 

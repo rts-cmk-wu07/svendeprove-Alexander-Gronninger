@@ -67,7 +67,6 @@ const Search = () => {
           ) : searchResults[0] ? (
             <Carousel>
               {searchResults?.map((activity) => {
-                console.log(activity);
                 return (
                   <ClassCard
                     image={activity?.asset?.url}

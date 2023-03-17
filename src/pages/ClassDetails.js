@@ -28,6 +28,28 @@ const ClassDetails = () => {
       });
   }, [activity]);
 
+  /* 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  MAKE SIGNUP CHECK IF MAX PARTICIPANTS MET
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  */
   function SignUpHandler() {
     const toastNotification = toast.loading("Skriver op til klasse...", {
       position: "top-center",
