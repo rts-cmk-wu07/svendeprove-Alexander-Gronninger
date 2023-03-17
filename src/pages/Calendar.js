@@ -47,7 +47,7 @@ const Calendar = () => {
     <>
       <section className="p-[28px] pt-[32px]">
         <Heading>Kalender</Heading>
-        {userActivities[0] ? (
+        {userActivities && userActivities[0] ? (
           userActivities?.map((activity) => {
             return (
               (user.role === "default" && (

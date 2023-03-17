@@ -10,6 +10,7 @@ import Search from "./pages/Search";
 import Calendar from "./pages/Calendar";
 import Signups from "./pages/Signups";
 import Login from "./pages/Login";
+import InstructorProtection from "./components/InstructorProtection";
 
 const router = createBrowserRouter([
   {
@@ -25,7 +26,14 @@ const router = createBrowserRouter([
       { path: "/klasse/:id", element: <ClassDetails /> },
       { path: "/søg", element: <Search /> },
       { path: "/kalender", element: <Calendar /> },
-      { path: "/tilmeldte/:id", element: <Signups /> },
+      {
+        path: "/tilmeldte/:id",
+        element: (
+          <InstructorProtection>
+            <Signups />
+          </InstructorProtection>
+        ),
+      },
       { path: "/login", element: <Login /> },
     ],
   },
