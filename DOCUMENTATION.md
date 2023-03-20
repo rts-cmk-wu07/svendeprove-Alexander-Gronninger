@@ -96,8 +96,8 @@ Denne div er derfor større end selve siden / skærmen er.
 
 Jeg vil gerne have login formularen bliver i midten af skærmen uanset hvad.
 Så jeg får fat i bredden på vinduet og login containeren, finder forskellen på dem, og dividere med 2 for at finde den mængde pixels som margin-left skal have.
-Denne udregning skal gøres hver gang vinduets bredde ændre sig, fordi i jo vil teste responsiveness - normal er det ret sjælendt at en bruger ændre skræm størrelse uden refresh
-En useEffect gør at den bliver opdateret automatisk
+Denne udregning skal gøres hver gang vinduets bredde ændre sig, fordi i jo vil teste responsiveness - normal er det ret sjælendt at en bruger ændre skræm størrelse uden refresh.
+En useEffect gør at den bliver opdateret automatisk.
 Den div som skal have margin er linket via useRef, hvor jeg bruger normal style={...}
 
 ```
@@ -130,15 +130,15 @@ const [formMarginLeft, setFormMarginLeft] = useState(null);
 
 ## 2 - Guard clauses på 'skriv op' til klasse knap
 
-Det første check jeg laver er om klasse dagen er i dag, man skal ikke kunne skrive op til en klasse der starter samme dag
-Det er egentlig ret simpelt, APIet giver dag i samme format som "long", på dansk i lowercase, så det bare at matche de 2
+Det første check jeg laver er om klasse dagen er i dag, man skal ikke kunne skrive op til en klasse der starter samme dag.
+Det er egentlig ret simpelt, APIet giver dag i samme format som "long", på dansk i lowercase, så det bare at matche de 2.
 
-Derefter tjekker jeg om personen er skrevet op til en klasse på den dag allerede, altså en kalendar konflikt
-Ingen 2 klasser har samme dag, men for fremtidssikringens skyld, valgte jeg at gøre dette
+Derefter tjekker jeg om personen er skrevet op til en klasse på den dag allerede, altså en kalendar konflikt.
+Ingen 2 klasser har samme dag, men for fremtidssikringens skyld, valgte jeg at gøre dette.
 
-Derefter tjekker jeg om brugeren møder aldersgrænserne til klassen
+Derefter tjekker jeg om brugeren møder aldersgrænserne til klassen.
 
-Alle disse er guard clauses, dvs at hvis noget er opfyldt, så stopper den koden(return)
+Alle disse er guard clauses, dvs at hvis noget er opfyldt, så stopper den koden(return).
 
 ```
 const currentDate = new Date();
