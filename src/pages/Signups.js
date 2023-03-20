@@ -19,7 +19,7 @@ const Signups = () => {
 
   return (
     <>
-      <section className="p-[28px] pt-[32px]">
+      <section className="p-[28px] pt-[32px] mx-auto max-w-[500px]">
         <Heading optionalCss="truncate">{activity.name}</Heading>
 
         <div className="mt-4">
