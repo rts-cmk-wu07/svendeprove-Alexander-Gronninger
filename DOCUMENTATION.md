@@ -178,3 +178,17 @@ const currentDate = new Date();
 
   {post fetch to add user to class...}
 ```
+
+# Scalering
+
+## Det ville være nemt fordi:
+
+- Genbruligt kode
+
+## Mulige vidreudvikling
+
+- Profil side
+- Træner side
+- Klasse kategorier
+- Opræt klasse
+- Optræt bruger
