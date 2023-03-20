@@ -180,10 +180,12 @@ const Login = () => {
             </div>
             <div className="mx-auto shadow-[3px_4px_4px_0_#00000025] rounded-[10px]">
               <Button>
-                <input
+                <button
                   className="w-full h-full text-quaternaryText"
                   type="submit"
-                />
+                >
+                  Log ind
+                </button>
               </Button>
             </div>
           </form>

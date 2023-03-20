@@ -15,7 +15,9 @@ const Nav = () => {
   const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
-    tokenCookie !== "undefined" && setUser(JSON.parse(tokenCookie));
+    tokenCookie !== "undefined" &&
+      tokenCookie &&
+      setUser(JSON.parse(tokenCookie));
   }, [tokenCookie, setUser]);
 
   const linkCss =
