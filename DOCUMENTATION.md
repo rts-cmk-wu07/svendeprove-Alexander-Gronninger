@@ -64,3 +64,10 @@ https://www.npmjs.com/package/framer-motion
 - Nemme animationer
 - Stor brugerbase
 - Veldokumenteret, dog ikke super brugervenligt
+
+# React-use-cookies
+
+https://www.npmjs.com/package/react-use-cookie
+
+- Nem og simple at bruge
+- Bliver brugt af mange

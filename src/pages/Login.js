@@ -8,15 +8,17 @@ import "react-toastify/dist/ReactToastify.css";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
 import Heading from "../components/Heading";
+import UseCookie from "react-use-cookie";
 
 const schema = yup
   .object({
-    username: yup.string().required("Username er påkrævet"),
-    password: yup.string().required("Password er påkrævet"),
+    username: yup.string().required("Brugernavn er påkrævet"),
+    password: yup.string().required("Kodeord er påkrævet"),
   })
   .required();
 
 const Login = () => {
+  const [, setTokenCookie] = UseCookie("tokenCookie", undefined);
   const { setUser } = useContext(UserContext);
 
   // To navigate back to main page when login successful
@@ -45,14 +47,17 @@ const Login = () => {
   }, []);
 
   useEffect(() => {
+    /* windows width minus login divs width divided by 2 gives the margin required for center */
     setFormMarginLeft(
       `${(windowSize.width - loginDiv?.current.offsetWidth) / 2}px`
     );
   }, [loginDiv, windowSize]);
 
   /*
+   login fetch
    */
-  // login fetch
+
+  const saveMe = useRef();
 
   const {
     register,
@@ -95,6 +100,14 @@ const Login = () => {
           isLoading: false,
           autoClose: 2500,
         });
+        if (saveMe.current.checked) {
+          const milliseconds = data.validUntil - Date.now();
+          const validFor = milliseconds / (1000 * 60 * 60 * 24);
+          setTokenCookie(JSON.stringify(data), {
+            Days: validFor,
+            SameSite: "Strict",
+          });
+        }
         setUser(data);
         navigate("/hjem");
       })
@@ -149,10 +162,21 @@ const Login = () => {
               {...register("password")}
               type="password"
             />
-            <div className="h-12">
-              <p className="text-quaternaryText">{errors.username?.message}</p>
+            <div>
+              <input
+                ref={saveMe}
+                label="remember"
+                type="checkbox"
+                name="remember"
+              />
+              <label htmlFor="remember">Husk mig</label>
             </div>
-            <div className="mx-auto">
+            <div className="h-12">
+              <p className="text-quaternaryText whitespace-normal w-[50vw]">
+                {errors.username?.message}
+              </p>
+            </div>
+            <div className="mx-auto shadow-[3px_4px_4px_0_#00000025] rounded-[10px]">
               <Button>
                 <input
                   className="w-full h-full text-quaternaryText"

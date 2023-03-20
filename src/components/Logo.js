@@ -10,7 +10,7 @@ const Logo = () => {
             Dans
           </h1>
         </div>
-        <div className="w-[242px] border-[7px] border-logoLine mt-[14px] drop-shadow-[0px 4px 4px rgb(0 0 0 / 0.25)]"></div>
+        <div className="w-[242px] border-[7px] border-logoLine mt-[14px] drop-shadow-[0px_4px_4px_0_rgba(0,0,0,0.25)]"></div>
       </div>
     </>
   );

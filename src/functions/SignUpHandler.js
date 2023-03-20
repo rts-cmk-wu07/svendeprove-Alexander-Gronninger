@@ -33,7 +33,7 @@ export default function SignUpHandler(
     });
   }
 
-  userActivities?.map((userActivity) => {
+  userActivities?.forEach((userActivity) => {
     if (userActivity.weekday.toLowerCase() === activity.weekday.toLowerCase()) {
       return toast.update(toastNotification, {
         render: `Du kan kun skrive op til 1 klasse per dag, du er allerede skrevet op til ${userActivity.name}`,

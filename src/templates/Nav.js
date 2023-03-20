@@ -6,16 +6,22 @@ import {
   FiLogOut,
   FiSearch,
 } from "react-icons/fi";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import UserContext from "../context/UserContext";
+import UseCookie from "react-use-cookie";
 
 const Nav = () => {
-  const { user } = useContext(UserContext);
+  const [tokenCookie] = UseCookie("tokenCookie", undefined);
+  const { user, setUser } = useContext(UserContext);
+
+  useEffect(() => {
+    tokenCookie && setUser(JSON.parse(tokenCookie));
+  }, [tokenCookie, setUser]);
+
+  console.log(user);
 
   const linkCss =
     "w-[41px] h-[41px] block border-[1px] border-primaryBorder flex justify-center items-center rounded-full";
-
-  console.log(user);
 
   return (
     <>
@@ -31,7 +37,14 @@ const Nav = () => {
             <FiLogIn size="24" />
           </Link>
         ) : (
-          <a className={linkCss} href="/">
+          <a
+            onClick={() => {
+              document.cookie =
+                "auth=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+            }}
+            className={linkCss}
+            href="/"
+          >
             <FiLogOut size="24" />
           </a>
         )}
