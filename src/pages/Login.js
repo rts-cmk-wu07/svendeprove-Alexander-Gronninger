@@ -34,9 +34,13 @@ const Login = () => {
 
   useEffect(() => {
     function handleResize() {
-      setWindowSize({
-        width: window.innerWidth,
-      });
+      if (window.innerWidth < 1024) {
+        setWindowSize({
+          width: window.innerWidth,
+        });
+      } else {
+        setWindowSize({ width: 1024 });
+      }
     }
 
     window.addEventListener("resize", handleResize);
@@ -138,13 +142,13 @@ const Login = () => {
       <div className="bg-[url('./backgrounds/splash-image.jpg')] bg-cover bg-no-repeat bg-top h-screen overflow-hidden grid">
         <div className="bg-septenaryBackground h-[60vh] w-[200vw] -rotate-[27.19deg] right-[50vw] top-[15vh] relative col-start-1 col-end-2 row-start-1 row-end-2"></div>
         <div
-          className="col-start-1 col-end-2 row-start-1 row-end-2 mt-[30vh] z-50 h-fit w-fit block"
+          className="col-start-1 col-end-2 row-start-1 row-end-2 mt-[30vh] z-50 h-fit w-fit block lg:ml-346px"
           ref={loginDiv}
           style={{ marginLeft: formMarginLeft }}
         >
           <Heading>Log ind</Heading>
           <form
-            className="max-w-[50vh] h-fit flex flex-col"
+            className="max-w-[332px] h-fit flex flex-col"
             onSubmit={handleSubmit(onSubmit)}
           >
             <input

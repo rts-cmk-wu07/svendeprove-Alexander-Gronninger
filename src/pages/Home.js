@@ -19,7 +19,7 @@ const Home = () => {
 
   return (
     <>
-      <section className="p-[28px] pt-[32px] overflow-hidden">
+      <section className="p-[28px] pt-[32px] overflow-hidden sm:px-[70px] mx-auto max-w-[500px]">
         <Heading>Aktiviteter</Heading>
         <div className="mt-8 overflow-hidden max-h-[85vh]">
           <Carousel setPlaylistIndex={carouselIndex}>
@@ -38,7 +38,7 @@ const Home = () => {
                 );
               })}
             {/* Makes sure the last card does not get hidden behind the nav bar */}
-            <div aria-hidden="true" className="h-[66px]"></div>
+            <div aria-hidden="true" className="h-[66px] sm:h-[500px]"></div>
           </Carousel>
         </div>
       </section>

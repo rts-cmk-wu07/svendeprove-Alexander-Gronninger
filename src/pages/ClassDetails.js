@@ -39,10 +39,10 @@ const ClassDetails = () => {
 
   return (
     <>
-      <section className="bg-primaryBackground">
+      <section className="bg-primaryBackground max-w-[640px] m-auto">
         <div className="grid overflow-hidden h-[60vh]">
           <img
-            className="h-auto w-full scale-150 origin-top col-start-1 col-end-2 row-start-1 row-end-2"
+            className="h-auto w-full scale-150 origin-top col-start-1 col-end-2 row-start-1 row-end-2 sm:origin-center"
             src={activity.id && activity.asset.url}
             alt={activity.id && activity?.name}
           />

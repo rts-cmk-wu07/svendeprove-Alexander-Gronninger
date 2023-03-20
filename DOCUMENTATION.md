@@ -97,6 +97,8 @@ Denne div er derfor større end selve siden / skærmen er.
 Jeg vil gerne have login formularen bliver i midten af skærmen uanset hvad.
 Så jeg får fat i bredden på vinduet og login containeren, finder forskellen på dem, og dividere med 2 for at finde den mængde pixels som margin-left skal have.
 Denne udregning skal gøres hver gang vinduets bredde ændre sig, fordi i jo vil teste responsiveness - normal er det ret sjælendt at en bruger ændre skræm størrelse uden refresh.
+
+Medmindre skærmen er over 1024, som er sidens bredde, opdaterer den, ellers sætter den til 1024
 En useEffect gør at den bliver opdateret automatisk.
 Den div som skal have margin er linket via useRef, hvor jeg bruger normal style={...}
 
@@ -110,9 +112,13 @@ const [formMarginLeft, setFormMarginLeft] = useState(null);
 
   useEffect(() => {
     function handleResize() {
-      setWindowSize({
-        width: window.innerWidth,
-      });
+      if (window.innerWidth < 1024) {
+        setWindowSize({
+          width: window.innerWidth,
+        });
+      } else {
+        setWindowSize({ width: 1024 });
+      }
     }
 
     window.addEventListener("resize", handleResize);

@@ -26,10 +26,10 @@ const Search = () => {
 
   return (
     <>
-      <section className="p-[28px] pt-[32px]">
+      <section className="p-[28px] pt-[32px] mx-auto max-w-[500px] sm:px-[70px]">
         <Heading>Søg</Heading>
         <div
-          className="flex bg-quaternaryBackground my-4 "
+          className="flex bg-quaternaryBackground my-4 max-w-[500px] "
           ref={searchContainer}
         >
           <input
@@ -80,7 +80,7 @@ const Search = () => {
                 );
               })}
               {/* Makes sure the last card does not get hidden behind the nav bar */}
-              <div className="h-[66px]"></div>
+              <div aria-hidden="true" className="h-[66px]"></div>
             </Carousel>
           ) : (
             <p aria-hidden="true" className="text-secondaryText text-normal">

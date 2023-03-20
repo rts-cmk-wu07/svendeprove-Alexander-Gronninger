@@ -15,7 +15,7 @@ const Nav = () => {
   const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
-    tokenCookie && setUser(JSON.parse(tokenCookie));
+    tokenCookie !== "undefined" && setUser(JSON.parse(tokenCookie));
   }, [tokenCookie, setUser]);
 
   const linkCss =
@@ -23,7 +23,7 @@ const Nav = () => {
 
   return (
     <>
-      <nav className="bg-secondaryBackground h-[66px] w-full fixed bottom-0 flex px-4 justify-between items-center z-50  max-w-[425px]">
+      <nav className="h-full flex px-4 justify-between items-center z-50 sm:max-w-[640px] mx-auto">
         <Link className={linkCss} to="/hjem">
           <FiHome size="24" />
         </Link>

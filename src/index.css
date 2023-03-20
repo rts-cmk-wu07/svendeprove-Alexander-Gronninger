@@ -6,7 +6,7 @@
 
 body {
   margin: 0 auto;
-  max-width: 425px;
+  max-width: 1024px;
 }
 
 @layer base {

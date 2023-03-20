@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 const ClassCard = ({ image, classTitle, ageLimit, id, day, time }) => {
   return (
     <>
-      <Link to={"/klasse/" + id}>
-        <div className="grid w-full mb-8 overflow-hidden">
+      <Link to={"/klasse/" + id} className="w-fit">
+        <div className="grid w-full max-w-[500px] mb-8 overflow-hidden">
           <div className="col-start-1 col-end-2 row-start-1 row-end-1 max-h-[40vh] rounded-[39px] rounded-br-none overflow-hidden">
             <img
               className="w-full h-auto rounded-[39px] rounded-br-none"

@@ -43,7 +43,7 @@ const Calendar = () => {
 
   return (
     <>
-      <section className="p-[28px] pt-[32px]">
+      <section className="p-[28px] pt-[32px] sm:max-w-[600px] mx-auto">
         <Heading>Kalender</Heading>
         {userActivities && userActivities[0] ? (
           userActivities?.map((activity) => {

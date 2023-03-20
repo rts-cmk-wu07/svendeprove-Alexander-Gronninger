@@ -19,10 +19,10 @@ const Layout = () => {
         pauseOnHover
       />
       <ContextProvider>
-        <header>
+        <header className="bg-secondaryBackground h-[66px] w-full fixed bottom-0 max-w-[1024px] z-40">
           <Nav />
         </header>
-        <main className="w-screen h-screen bg-primaryBackground max-w-[425px]">
+        <main className="w-screen h-screen bg-primaryBackground max-w-[1024px]">
           <Outlet />
         </main>
       </ContextProvider>
