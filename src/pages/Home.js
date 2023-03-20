@@ -1,6 +1,8 @@
+import { useContext } from "react";
 import { toast } from "react-toastify";
 import ClassCard from "../components/ClassCard";
 import Heading from "../components/Heading";
+import HomeScrollContext from "../context/HomeScrollContext";
 import useFetch from "../hooks/useFetch";
 import Carousel from "../templates/Carousel";
 
@@ -11,6 +13,8 @@ const Home = () => {
     error,
   } = useFetch("http://localhost:4000/api/v1/activities");
 
+  const { carouselIndex } = useContext(HomeScrollContext);
+
   error && toast.error("Kunne ikke hente data, prøv igen senere");
 
   return (
@@ -18,7 +22,7 @@ const Home = () => {
       <section className="p-[28px] pt-[32px] overflow-hidden">
         <Heading>Aktiviteter</Heading>
         <div className="mt-8 overflow-hidden max-h-[85vh]">
-          <Carousel>
+          <Carousel setPlaylistIndex={carouselIndex}>
             {!isLoading &&
               activities.map((activity) => {
                 return (

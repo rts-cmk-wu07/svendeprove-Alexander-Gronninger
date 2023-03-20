@@ -45,7 +45,7 @@ const Search = () => {
           <FiSearch size="24" className="text-tertiaryText self-center mr-4" />
         </div>
 
-        <div className="mt-8 overflow-hidden max-h-[75vh] mb-12">
+        <div className="mt-8 overflow-hidden max-h-[75vh]">
           {!isLoading && !searchTerm ? (
             <Carousel>
               {activities.map((activity) => {

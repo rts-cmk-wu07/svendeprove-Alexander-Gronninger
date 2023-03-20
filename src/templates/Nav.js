@@ -23,7 +23,7 @@ const Nav = () => {
 
   return (
     <>
-      <nav className="bg-secondaryBackground h-[66px] w-full fixed bottom-0 flex px-4 justify-between items-center z-50">
+      <nav className="bg-secondaryBackground h-[66px] w-full fixed bottom-0 flex px-4 justify-between items-center z-50  max-w-[425px]">
         <Link className={linkCss} to="/hjem">
           <FiHome size="24" />
         </Link>
