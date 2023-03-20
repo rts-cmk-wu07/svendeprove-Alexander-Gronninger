@@ -39,7 +39,7 @@ const Calendar = () => {
       toast.error("Du skal være logget ind for at se kalender");
       navigate("/hjem");
     }
-  }, []);
+  }, [navigate, user]);
 
   return (
     <>
@@ -49,7 +49,7 @@ const Calendar = () => {
           userActivities?.map((activity) => {
             return (
               (user.role === "default" && (
-                <Link to={"/klasse/" + activity.id}>
+                <Link to={"/klasse/" + activity.id} key={activity.id}>
                   <CalendarCard
                     classTitle={activity.name}
                     classDay={activity.weekday}

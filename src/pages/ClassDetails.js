@@ -30,12 +30,12 @@ const ClassDetails = () => {
 
   useEffect(() => {
     !isLoading &&
-      activity?.users?.map((userObject) => {
+      activity?.users?.forEach((userObject) => {
         if (userObject?.id === user?.userId) {
           setSignedUp(true);
         }
       });
-  }, [activity]);
+  }, [activity, isLoading, user?.userId]);
 
   return (
     <>

@@ -11,14 +11,12 @@ import UserContext from "../context/UserContext";
 import UseCookie from "react-use-cookie";
 
 const Nav = () => {
-  const [tokenCookie] = UseCookie("tokenCookie", undefined);
+  const [tokenCookie, setTokenCookie] = UseCookie("tokenCookie", undefined);
   const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
     tokenCookie && setUser(JSON.parse(tokenCookie));
   }, [tokenCookie, setUser]);
-
-  console.log(user);
 
   const linkCss =
     "w-[41px] h-[41px] block border-[1px] border-primaryBorder flex justify-center items-center rounded-full";
@@ -39,8 +37,7 @@ const Nav = () => {
         ) : (
           <a
             onClick={() => {
-              document.cookie =
-                "auth=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+              setTokenCookie(undefined);
             }}
             className={linkCss}
             href="/"

@@ -36,6 +36,7 @@ export default function useFetch(API, token, body) {
         }
       })();
     },
+    // eslint-disable-next-line
     [API]
   );
 
