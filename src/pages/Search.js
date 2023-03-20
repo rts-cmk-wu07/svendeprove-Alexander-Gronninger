@@ -62,7 +62,7 @@ const Search = () => {
                 );
               })}
               {/* Makes sure the last card does not get hidden behind the nav bar */}
-              <div className="h-[66px]"></div>
+              <div aria-hidden="true" className="h-[66px]"></div>
             </Carousel>
           ) : searchResults[0] ? (
             <Carousel>
@@ -83,7 +83,9 @@ const Search = () => {
               <div className="h-[66px]"></div>
             </Carousel>
           ) : (
-            <p className="text-secondaryText text-normal">Ingen resultater</p>
+            <p aria-hidden="true" className="text-secondaryText text-normal">
+              Ingen resultater
+            </p>
           )}
         </div>
       </section>

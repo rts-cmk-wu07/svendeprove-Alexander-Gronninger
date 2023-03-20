@@ -21,19 +21,7 @@ const Signups = () => {
     <>
       <section className="p-[28px] pt-[32px]">
         <Heading optionalCss="truncate">{activity.name}</Heading>
-        {/*         <div className="mt-4">
-          <p className="text-secondaryText text-medium my-2">
-            Instruktør{instructors?.length > 1 && "er"}:{" "}
-          </p>
-          {instructors[0] &&
-            instructors?.map((instructor) => {
-              return (
-                <p className="text-secondaryText text-small">
-                  {instructor.firstname} {instructor.lastname}
-                </p>
-              );
-            })}
-        </div> */}
+
         <div className="mt-4">
           <p className="text-secondaryText text-medium my-2">Tilmeldte:</p>
           {users[0] ? (

@@ -15,9 +15,9 @@ const Home = () => {
 
   return (
     <>
-      <section className="p-[28px] pt-[32px]">
+      <section className="p-[28px] pt-[32px] overflow-hidden">
         <Heading>Aktiviteter</Heading>
-        <div className="mt-8 overflow-hidden max-h-[85vh] mb-12">
+        <div className="mt-8 overflow-hidden max-h-[85vh]">
           <Carousel>
             {!isLoading &&
               activities.map((activity) => {
@@ -34,7 +34,7 @@ const Home = () => {
                 );
               })}
             {/* Makes sure the last card does not get hidden behind the nav bar */}
-            <div className="h-[66px]"></div>
+            <div aria-hidden="true" className="h-[66px]"></div>
           </Carousel>
         </div>
       </section>

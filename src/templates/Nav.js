@@ -15,6 +15,8 @@ const Nav = () => {
   const linkCss =
     "w-[41px] h-[41px] block border-[1px] border-primaryBorder flex justify-center items-center rounded-full";
 
+  console.log(user);
+
   return (
     <>
       <nav className="bg-secondaryBackground h-[66px] w-full fixed bottom-0 flex px-4 justify-between items-center z-50">
