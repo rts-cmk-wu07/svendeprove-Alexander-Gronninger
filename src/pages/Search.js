@@ -84,7 +84,8 @@ const Search = () => {
             </Carousel>
           ) : (
             <p aria-hidden="true" className="text-secondaryText text-normal">
-              Ingen resultater
+              Der blev ikke fundet nogle aktiviteter. Prøv at søge efter noget
+              andet.
             </p>
           )}
         </div>
