@@ -50,7 +50,6 @@ const Nav = () => {
         <Link className={linkCss} to="/kalender">
           <FiCalendar size="24" />
         </Link>
-        <p>I AM NEW</p>
       </nav>
     </>
   );
